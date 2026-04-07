@@ -1,26 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: rgba(36, 102, 242, 1);
+  --secondary: rgba(23, 27, 33, 1);
+  --text: #6B7280;
+  --bg: #FFFFFF;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--secondary);
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid #ddd;
+  background: var(--secondary);
+}
+
+.btn-outline:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+ul li {
+  cursor: pointer;
+}
+
+/* Heading design */
+
+.title {
+  @apply relative inline-flex items-center gap-4 px-8 py-4 rounded-full 
+         bg-[#0b1220]/90 backdrop-blur-md border border-white/10 text-[#D0D5D9];
+}
+
+/* Gradient border wrapper */
+.title-wrapper {
+  @apply relative inline-block rounded-full p-[1.5px] 
+         bg-linear-to-r from-blue-500/40 via-blue-400/20 to-transparent;
+}
+
+/* Glow effect */
+.title-wrapper::before {
+  content: "";
+  @apply absolute inset-0 rounded-full bg-blue-500/30 blur-3xl opacity-70;
+}
+
+/* Dot */
+.title-dot {
+  @apply w-4 h-4 rounded-full bg-blue-500;
+}
+
+/* Text */
+.title-text {
+  @apply font-extralight text-[#D0D5D9];
+}
+
+.video-first-child {
+  @apply bg-gray-800
+}
+.video-first-child:first-child {
+  @apply bg-white
 }
